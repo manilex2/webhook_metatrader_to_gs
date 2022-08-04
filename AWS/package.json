@@ -1,0 +1,12 @@
+{
+  "name": "webhook_metatrader_to_gs",
+  "version": "1.0.0",
+  "description": "Atrapa todas las ordenes enviadas de Metatrader 4 y guarda la información en un spreedsheet.",
+  "main": "index.js",
+  "author": "Aaron Villao",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "googleapis": "^95.0.0"
+  }
+}
