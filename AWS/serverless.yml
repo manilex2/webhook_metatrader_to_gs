@@ -1,0 +1,24 @@
+service: webhookMetatraderToGS
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: prod
+  region: us-east-2
+  environment:
+    SPREADSHEET_ID: ${env:SPREADSHEET_ID}
+    ID_HOJA_RANGO: ${env:ID_HOJA_RANGO}
+    API_KEY: ${env:API_KEY}
+
+functions:
+  webhookMetaTraderToGS:
+    handler: index.handler
+    name: webhookMetaTraderToGS
+    description: LFF1 - Atrapa todas las ordenes enviadas de Metatrader 4 y guarda la información en un spreedsheet.
+    events:
+      - http: POST /
+      - http: 'POST {proxy+}'
+
+plugins:
+  - serverless-offline
